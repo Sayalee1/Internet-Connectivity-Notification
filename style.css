@@ -1,0 +1,41 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  width: 30%;
+  height: 50%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+#connection {
+  font: 60px Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  vertical-align: middle;
+  color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+}
+#connection div{
+  background-color: orange;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+#connection.online {
+  background-color: green;
+}
+#connection.online div {
+  background-color: green;
+}
+
+#connection.offline {
+  background-color: red;
+}
+#connection.offline div {
+  background-color: red;
+}

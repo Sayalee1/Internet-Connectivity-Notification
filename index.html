@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Check Internet Connectivity</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+function updateConnectionStatus(msg, online) {
+  var el = document.querySelector('#connection');
+  if (online) {
+    if (el.classList) {
+      el.classList.add('online');
+      el.classList.remove('offline');
+    } else {
+      el.addClass('online');
+      el.removeClass('offline');
+    }
+  } else {
+    if (el.classList) {
+      el.classList.remove('online');
+      el.classList.add('offline');
+    } else {
+      el.removeClass('online');
+      el.addClass('offline');
+    }
+  }
+  el.innerHTML = msg + '<div></div>';
+}
+
+window.addEventListener('load', function(e) {
+  if (navigator.onLine) {
+    updateConnectionStatus('Online', true);
+  } else {
+    updateConnectionStatus('Offline', false);
+  }
+}, false);
+
+window.addEventListener('online', function(e) {
+  alert("Your internet connection is resumed");
+  updateConnectionStatus('Online', true);
+}, false);
+
+window.addEventListener('offline', function(e) {
+  alert("Your internet connection is disconnected");
+  updateConnectionStatus('Offline', false);
+}, false);
+</script>
+</head>
+<body>
+  <center><p>On/Off internet connection to check the changing status</p>
+	<div id="connection">Discovering Connectivity!</div>
+</body>
+</html>
